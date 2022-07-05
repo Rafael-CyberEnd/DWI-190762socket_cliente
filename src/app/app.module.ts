@@ -9,10 +9,12 @@ const config: SocketIoConfig =
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
