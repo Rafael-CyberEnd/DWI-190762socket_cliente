@@ -1,23 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { WebsocketService } from './services/websocket.service';
-import { ChatService } from './services/chat.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
 
   title = 'basico';
   constructor(
   public wsService: WebsocketService,
-  public ChatService: ChatService
+  
   ){}
 
-  ngOnInit(): void {
-   
-    this.ChatService.sendMessage('hola raza!! usando angular')
-
-  }
 }

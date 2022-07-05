@@ -19,4 +19,9 @@ this.wsService.emit('mensaje', payload);
 
 }
 
+getMessage(){
+  return this.wsService.listen('mensaje nuevo');
+}
+
+
 }
