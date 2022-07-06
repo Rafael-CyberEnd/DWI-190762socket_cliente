@@ -13,14 +13,15 @@ export class ChatService {
 sendMessage(mensaje: String){
   const payload = {
     de: 'rafa',
-    cuerpo: mensaje
+    cuerpo: mensaje,
+    color: "salmon"
 };
 this.wsService.emit('mensaje', payload);
 
 }
 
 getMessage(){
-  return this.wsService.listen('mensaje nuevo');
+  return this.wsService.listen('mensaje-nuevo');
 }
 
 

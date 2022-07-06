@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from '../../services/chat.service';
-
 import { Subscription } from 'rxjs';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-chat',
@@ -11,20 +10,20 @@ import { Subscription } from 'rxjs';
 export class ChatComponent implements OnInit {
 
   texto='';
-  mensajesSubscription: Subscription = new Subscription;
+  mensajesSubscription: Subscription  = new Subscription;
 
+  mensajes: any[]=[];
   constructor(
     public chatService: ChatService
   ) { }
 
   ngOnInit(): void {
-    this.mensajesSubscription = 
-    this.chatService.getMessage().subscribe(
-      msg =>
-      {
-        console.log(msg);
+    this.mensajesSubscription=
+    this.chatService.getMessage().subscribe( msg => {
+        this.mensajes.push(msg)
       }
-    );
+    )
+
   }
 
   enviar(){
@@ -32,8 +31,8 @@ export class ChatComponent implements OnInit {
     this.texto='';
   }
 
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.mensajesSubscription.unsubscribe();
   }
-
 }
+
