@@ -4,7 +4,7 @@
 <div id="chat-mensajes">
   <li class="list-group-item"
   *ngFor = "let msg of mensajes">
-  <span style="color: salmon; font-weight: bold"> {{msg.de}}:</span>
+  <span [style.color]='msg.color' style=" font-weight: bold"> {{msg.de}}:</span>
   {{ msg.cuerpo}}
   </li>
 </div>
